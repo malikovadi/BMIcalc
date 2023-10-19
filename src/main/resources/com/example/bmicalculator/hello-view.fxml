@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bmicalculator.HelloController">
+   <children>
+      <MenuBar layoutY="2.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onExitPane" text="Exit" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Menu">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onMetricUnits" text="MetricUnits" />
+                  <MenuItem mnemonicParsing="false" onAction="#onEnglishUnits" text="EnglishUnits" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onHelpTab" text="About" />
+              </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+       <AnchorPane fx:id="metricUnitsPane" layoutX="34.0" layoutY="43.0" prefHeight="328.0" prefWidth="530.0" style="-fx-background-color: grey;" visible="false">
+           <children>
+            <TextField fx:id="weightInput" layoutX="163.0" layoutY="72.0" prefHeight="27.0" prefWidth="204.0" style="-fx-background-color: white;" />
+               <TextField fx:id="heightInput" layoutX="163.0" layoutY="136.0" prefHeight="27.0" prefWidth="204.0" style="-fx-background-color: white;" />
+               <Label layoutX="82.0" layoutY="140.0" style="-fx-background-color: white;" text="Height(cm):" />
+               <Label layoutX="80.0" layoutY="77.0" style="-fx-background-color: white;" text="Weight(kg):" />
+            <Button layoutX="163.0" layoutY="212.0" mnemonicParsing="false" onAction="#onCalcButton" style="-fx-background-color: orange;" text="Calculate" />
+            <Label fx:id="resultLabel" layoutX="163.0" layoutY="269.0" style="-fx-background-color: white;" text="Label" visible="false" />
+            <Button layoutX="255.0" layoutY="212.0" mnemonicParsing="false" onAction="#onClearClick" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: orange;" text="Clear" />
+            <TextArea layoutX="6.0" layoutY="6.0" prefHeight="39.0" prefWidth="91.0" text="Metric Units" />
+           </children>
+       </AnchorPane>
+      <AnchorPane fx:id="englishUnitsPane" layoutX="54.0" layoutY="36.0" prefHeight="342.0" prefWidth="489.0" style="-fx-background-color: grey;" visible="false">
+         <children>
+            <TextField fx:id="weightInputLbs" layoutX="143.0" layoutY="76.0" prefHeight="27.0" prefWidth="204.0" style="-fx-background-color: white;" />
+            <TextField fx:id="heightInputInch" layoutX="143.0" layoutY="138.0" prefHeight="27.0" prefWidth="204.0" style="-fx-background-color: white;" />
+            <Label layoutX="55.0" layoutY="81.0" style="-fx-background-color: white;" text="Weight(lbs):" />
+            <Label layoutX="55.0" layoutY="143.0" style="-fx-background-color: white;" text="Height(inch)" />
+            <Button layoutX="141.0" layoutY="196.0" mnemonicParsing="false" onAction="#onCalcButtonEnglish" style="-fx-background-color: orange;" text="Calculate" />
+            <Button layoutX="263.0" layoutY="194.0" mnemonicParsing="false" onAction="#onClearClickEnglish" prefHeight="26.0" prefWidth="62.0" style="-fx-background-color: orange;" text="Clear" />
+            <Label fx:id="resultLabelEnglish" layoutX="143.0" layoutY="256.0" style="-fx-background-color: white;" text="Label" visible="false" />
+            <TextArea layoutX="13.0" layoutY="14.0" prefHeight="39.0" prefWidth="85.0" text="English Units" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="helpPane" layoutX="44.0" layoutY="53.0" prefHeight="328.0" prefWidth="530.0" style="-fx-background-color: grey;" visible="false">
+         <children>
+            <TextArea prefHeight="328.0" prefWidth="530.0" text="Launch the Application:&#10;&#10;Run the JavaFX application to launch the BMI calculator.&#10;Select Measurement System:&#10;&#10;Initially, you can choose the measurement system you prefer (Metric or English) by clicking on &quot;MetricUnits&quot; or &quot;EnglishUnits&quot; in the &quot;Menu.&quot;&#10;Input Weight and Height:&#10;&#10;After selecting the measurement system, you will see input fields for weight and height. These fields are for entering your weight in kilograms (Metric) or pounds (English) and your height in meters (Metric) or feet (English).&#10;Enter Weight and Height:&#10;&#10;Enter your weight in the &quot;Weight(kg)&quot; or &quot;Weight(lb)&quot; field.&#10;Enter your height in the &quot;Height(m)&quot; or &quot;Height(ft)&quot; field.&#10;Calculate BMI:&#10;&#10;After entering your weight and height, click on the &quot;Calculate&quot; button.&#10;View BMI Result:&#10;&#10;The calculated BMI (Body Mass Index) will be displayed in the label below the &quot;Calculate&quot; button. It will show a message like &quot;BMI: X.X&quot; where &quot;X.X&quot; is your calculated BMI value.&#10;Invalid Input Handling:&#10;&#10;If you enter non-numeric values in the weight or height fields, the application will display an error message in the label, indicating that the input is invalid.&#10;Switch Measurement Systems:&#10;&#10;If you initially selected &quot;MetricUnits&quot; but want to switch to &quot;EnglishUnits,&quot; you can do so by selecting &quot;EnglishUnits&quot; in the &quot;Menu.&quot; The input fields and labels will update accordingly.&#10;Help and About:&#10;&#10;You can click on the &quot;Help&quot; menu and select &quot;About&quot; to view information about the BMI calculator.&#10;Exit the Application:&#10;&#10;Close the application when you're done using it." />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
